@@ -2,13 +2,25 @@ import React from 'react';
 import classes from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
-const ContactForm = ({ name, setName, number, setNumber, addContact }) => {
+const ContactForm = ({
+  name,
+  setName,
+  number,
+  setNumber,
+  addContact,
+  filter,
+  setFilter,
+}) => {
   const handleNameChange = event => {
     setName(event.target.value);
   };
 
   const handleNumberChange = event => {
     setNumber(event.target.value);
+  };
+
+  const handleFilterChange = event => {
+    setFilter(event.target.value);
   };
 
   const handleSubmit = event => {
@@ -46,6 +58,19 @@ const ContactForm = ({ name, setName, number, setNumber, addContact }) => {
         <button type="submit">Add Contact</button>
       </form>
       <h2>Contacts</h2>
+      <div className={classes.contactFormSearch}>
+        <label className={classes.contactFormSearchLabel}>
+          Find contact by name
+          <input
+            className={classes.contactFormInput}
+            type="text"
+            name="filter"
+            value={filter}
+            onChange={handleFilterChange}
+            placeholder="Search by name"
+          />
+        </label>
+      </div>
     </div>
   );
 };
@@ -56,6 +81,8 @@ ContactForm.propTypes = {
   number: PropTypes.string.isRequired,
   setNumber: PropTypes.func.isRequired,
   addContact: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
