@@ -1,31 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import ContactItem from './ContactItem';
+import classes from './ContactList.module.css';
 
-const ContactList = ({ contacts, filter }) => {
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
+const ContactList = ({ contacts }) => {
   return (
-    <ul>
-      {filteredContacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name} : {contact.number}
-        </li>
+    <ul className={classes.contactList}>
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
       ))}
     </ul>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  filter: PropTypes.string.isRequired,
 };
 
 export default ContactList;
