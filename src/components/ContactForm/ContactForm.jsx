@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 const ContactForm = ({ name, setName, number, setNumber, addContact }) => {
   const handleNameChange = event => {
@@ -47,6 +48,14 @@ const ContactForm = ({ name, setName, number, setNumber, addContact }) => {
       <h2>Contacts</h2>
     </div>
   );
+};
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
+  number: PropTypes.string.isRequired,
+  setNumber: PropTypes.func.isRequired,
+  addContact: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
