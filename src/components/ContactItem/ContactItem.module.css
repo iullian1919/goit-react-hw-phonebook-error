@@ -1,0 +1,10 @@
+.contactItemButton {
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: none;
+
+  &:active {
+    background-color: #8993ff;
+  }
+}

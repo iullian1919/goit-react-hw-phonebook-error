@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
@@ -17,6 +16,11 @@ const App = () => {
   const [number, setNumber] = useState('');
 
   const addContact = () => {
+    if (contacts.some(contact => contact.name === name)) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+
     const newContact = {
       id: nanoid(),
       name: name,
@@ -26,6 +30,11 @@ const App = () => {
     setContacts(prevContacts => [...prevContacts, newContact]);
     setName('');
     setNumber('');
+  };
+  const deleteContact = contactId => {
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== contactId)
+    );
   };
 
   const handleFilterChange = value => {
@@ -49,7 +58,10 @@ const App = () => {
 
       <h2>Contacts</h2>
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList
+        contacts={filteredContacts}
+        onDeleteContact={deleteContact}
+      />
     </div>
   );
 };

@@ -8,6 +8,8 @@ const Filter = ({ filter, handleFilterChange }) => {
       Filter contacts by name:{' '}
       <input
         type="text"
+        id="008"
+        name="fox"
         value={filter}
         onChange={e => handleFilterChange(e.target.value)}
         className={classes.filterInput}

@@ -1,5 +1,3 @@
-/* ContactForm.module.css */
-
 .contactForm {
   margin-left: 5px;
 }
@@ -22,9 +20,13 @@
   gap: 5px;
 }
 
-button {
+.contactFormButton {
   margin-bottom: 10px;
   background-color: white;
   border-radius: 5px;
   box-shadow: none;
+
+  &:active {
+    background-color: #8993ff;
+  }
 }

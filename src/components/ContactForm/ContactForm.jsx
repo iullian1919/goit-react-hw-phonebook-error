@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import classes from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
-const ContactForm = ({ addContact }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+const ContactForm = ({ addContact, setName, setNumber }) => {
+  const [name, setNameLocal] = useState('');
+  const [number, setNumberLocal] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -20,19 +20,31 @@ const ContactForm = ({ addContact }) => {
           Name
           <input
             type="text"
+            id="formular"
+            name="iulian"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={e => {
+              setNameLocal(e.target.value);
+              setName(e.target.value);
+            }}
           />
         </label>
         <label className={classes.contactFormLabel}>
           Number
           <input
             type="text"
+            id="1919"
+            name="007"
             value={number}
-            onChange={e => setNumber(e.target.value)}
+            onChange={e => {
+              setNumberLocal(e.target.value);
+              setNumber(e.target.value);
+            }}
           />
         </label>
-        <button type="submit">Add Contact</button>
+        <button className={classes.contactFormButton} type="submit">
+          Add Contact
+        </button>
       </form>
     </div>
   );
@@ -40,6 +52,8 @@ const ContactForm = ({ addContact }) => {
 
 ContactForm.propTypes = {
   addContact: PropTypes.func.isRequired,
+  setName: PropTypes.func.isRequired,
+  setNumber: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
