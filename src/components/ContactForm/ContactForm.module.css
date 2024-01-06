@@ -1,10 +1,4 @@
-h1 {
-  margin-left: 10px;
-}
-
-h2 {
-  margin-left: 10px;
-}
+/* ContactForm.module.css */
 
 .contactForm {
   margin-left: 5px;
@@ -33,21 +27,4 @@ button {
   background-color: white;
   border-radius: 5px;
   box-shadow: none;
-}
-
-.contactFormSearch {
-  margin-left: 5px;
-}
-
-.contactFormSearchLabel {
-  font-size: 22px;
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: 20px 20px;
-  gap: 5px;
-}
-
-.contactFormInput {
-  max-width: 150px;
 }
